@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Application</AssemblyName>
+    <PackageId>Application</PackageId>
+    <Authors>Douglas Ramos</Authors>
+    <LangVersion>7.1</LangVersion>
+    <RootNamespace>RaceAnalysis.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Domain.csproj" />
+  </ItemGroup>
+
+</Project>
