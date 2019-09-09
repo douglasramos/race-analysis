@@ -33,19 +33,25 @@
       <td mat-cell *matCellDef="let element"> {{element.meanVelocity.toPrecision(4)}} </td>
     </ng-container>
 
-    <!-- Symbol TotalRaceTime -->
+    <!-- TotalRaceTime Column -->
     <ng-container matColumnDef="totalRaceTime">
       <th mat-header-cell *matHeaderCellDef> Race Time </th>
       <td mat-cell *matCellDef="let element"> {{element.totalRaceTime.slice(0,12)}} </td>
     </ng-container>
 
-    <!-- Symbol bestLapRace -->
+    <!-- TotalRaceTime Column -->
+    <ng-container matColumnDef="lapRaceQuantity">
+      <th mat-header-cell *matHeaderCellDef> Laps Qte. </th>
+      <td mat-cell *matCellDef="let element"> {{element.lapRaceQuantity}} </td>
+    </ng-container>
+
+    <!-- bestLapRace Column -->
     <ng-container matColumnDef="bestLapRace">
       <th mat-header-cell *matHeaderCellDef> Best Lap </th>
       <td mat-cell *matCellDef="let element"> {{element.bestLapRace}} </td>
     </ng-container>
 
-    <!-- Symbol timeAfterWinner -->
+    <!-- timeAfterWinner Column -->
     <ng-container matColumnDef="timeAfterWinner">
       <th mat-header-cell *matHeaderCellDef> Time After Winner </th>
       <td mat-cell *matCellDef="let element"> {{element.timeAfterWinner.slice(0,12)}} </td>

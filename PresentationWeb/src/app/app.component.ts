@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     'totalRaceTime',
     'bestLapRace',
     'timeAfterWinner',
+    'lapRaceQuantity',
   ];
 
   constructor(private raceService: RaceService) {}
