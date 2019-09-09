@@ -4,6 +4,9 @@ using System.Text;
 
 namespace RaceAnalysis.Application
 {
+    /// <summary>
+    /// Model Class for Application/Presenter Layer that represents a Pilot stats on a race
+    /// </summary>
     public class PilotRaceStatsModel
     {
         public string PilotId { get; set; }
@@ -13,6 +16,8 @@ namespace RaceAnalysis.Application
         public int Position { get; set; }        
 
         public double MeanVelocity { get; set; }
+
+        public int LapRaceQuantity { get; set; }
 
         public TimeSpan TotalRaceTime { get; set; }
 

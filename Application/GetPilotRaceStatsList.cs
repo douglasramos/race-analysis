@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace RaceAnalysis.Application
 {
+    /// <summary>
+    /// Hnadles the GetRace information UseCase
+    /// </summary>
     public class GetRace : IGetRace
     {
         private readonly IDataBaseService _dataBaseService;
@@ -20,12 +23,13 @@ namespace RaceAnalysis.Application
                                             new PilotRaceStatsModel
                                             {
                                                 PilotId = s.Pilot.Id,
+                                                LapRaceQuantity = s.LapRaceQuantity,
                                                 Name = s.Pilot.Name,
                                                 BestLapRace = s.BestLapRace.Number,
                                                 MeanVelocity = s.MeanVelocity,
                                                 Position = s.Position,
                                                 TimeAfterWinner = s.TimeAfterWinner,
-                                                TotalRaceTime = s.TotalRaceTime
+                                                TotalRaceTime = s.TotalRaceTime,
                                             })
                                     .OrderBy(p => p.Position);
 
