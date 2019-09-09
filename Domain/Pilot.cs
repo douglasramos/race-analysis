@@ -3,12 +3,18 @@ using System.Collections.Generic;
 
 namespace RaceAnalysis.Domain
 {
+    /// <summary>
+    /// Domain class that represents a Pilot
+    /// </summary>
     public  class Pilot: IDomainModel
     {
+        #region Properties
         public string Id { get; set; }
 
         public string Name { get; set; }
+        #endregion 
 
+        #region Comparable Methods
         public override bool Equals(object obj)
         {
             var obj2 = obj as Pilot;
@@ -21,6 +27,6 @@ namespace RaceAnalysis.Domain
         {
             return int.Parse(Id);
         }
-
+        #endregion
     }
 }

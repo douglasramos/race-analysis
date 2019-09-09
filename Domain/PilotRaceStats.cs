@@ -5,8 +5,12 @@ using System.Collections.Generic;
 
 namespace RaceAnalysis.Domain
 {
+    /// <summary>
+    /// Domain Class that represents all information of a Pilot inside a Race
+    /// </summary>
     public class PilotRaceStats: IDomainModel
     {
+        #region Constructor
         public PilotRaceStats(string id, Pilot pilot, Race race)
         {
             Pilot = pilot;
@@ -20,6 +24,8 @@ namespace RaceAnalysis.Domain
 
             LapRaces = race.LapRaces.Where(lr => lr.PilotId == pilot.Id).ToList();
 
+            LapRaceQuantity = LapRaces.Count;
+
             MeanVelocity = GetMeanVelocity();
 
             TotalRaceTime = GetTotalRaceTime();
@@ -28,7 +34,9 @@ namespace RaceAnalysis.Domain
 
             TimeAfterWinner = GetTimeAfterWinner();
         }
+        #endregion
 
+        #region Properties
         public readonly Pilot Pilot;
 
         public readonly Race Race;
@@ -39,24 +47,29 @@ namespace RaceAnalysis.Domain
 
         public ICollection<LapRace> LapRaces { get; }
 
+        public int LapRaceQuantity { get; }
+
         public double MeanVelocity { get; }
+
         public TimeSpan TotalRaceTime { get; }
 
         public LapRace BestLapRace { get;  }
 
         public TimeSpan TimeAfterWinner { get;  }
+        #endregion
 
+        #region Auxiliar Methods
         private int GetPilotPosition()
         {
             return Race.PositionPilots.First(p => p.Value.Id == Pilot.Id).Key;
         }
-
 
         private double GetMeanVelocity()
         {
             var velocitySum = LapRaces.Select(lr => lr.MeanVelocity).Sum();
             return velocitySum / LapRaces.Count;
         }
+
         private TimeSpan GetTotalRaceTime()
         {
             // The total race time is the sum of all laps time
@@ -88,5 +101,6 @@ namespace RaceAnalysis.Domain
 
             return timeEventPilot - timeEventWinner;           
         }
+        #endregion
     }
 }

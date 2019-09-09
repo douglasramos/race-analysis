@@ -6,12 +6,24 @@ using System.Text;
 
 namespace RaceAnalysis.Domain
 {
+    /// <summary>
+    /// Domain Class that represents a Race
+    /// </summary>
     public class Race : IDomainModel
     {
+        #region Fields
+        private List<Pilot> _pilots;
+        private List<LapRace> _lapRaces;
+        private Dictionary<int, Pilot> _positionPilots;
+        #endregion
+
+        #region Properties
         public string Id { get; }
 
-        private Dictionary<int, Pilot> _positionPilots;
-
+        /// <summary>
+        /// dictionary that relates a given race position and a pilot object
+        /// The position is the key and the pilot object is the value
+        /// </summary>
         public IReadOnlyDictionary<int, Pilot> PositionPilots
         {
             get
@@ -19,8 +31,6 @@ namespace RaceAnalysis.Domain
                 return _positionPilots;
             }
         }
-
-        private List<Pilot> _pilots;
 
         public IReadOnlyCollection<Pilot> Pilots
         {
@@ -30,8 +40,6 @@ namespace RaceAnalysis.Domain
             }
         }
 
-        private List<LapRace> _lapRaces;
-
         public IReadOnlyCollection<LapRace> LapRaces
         {
             get
@@ -39,7 +47,10 @@ namespace RaceAnalysis.Domain
                 return _lapRaces.AsReadOnly();
             }
         }
+        public LapRace BestLap { get; }
+        #endregion
 
+        #region Constructor
         public Race(string id, List<Pilot> pilots, List<LapRace> lapRaces)
         {
             // this property is not handle automatically because we dont have a real database to handle
@@ -54,7 +65,9 @@ namespace RaceAnalysis.Domain
             // calculate the BestLap [which we are considering the Lap in which some pilot finished in less time]
             BestLap = GetBestLap();
         }
+        #endregion
 
+        #region Auxiliary Methods
         private Dictionary<int, Pilot> GetPilotsPositions(ICollection<Pilot> pilots)
         {
             var positionPilots = new Dictionary<int, Pilot>();
@@ -82,11 +95,13 @@ namespace RaceAnalysis.Domain
             return positionPilots;
         }
 
-        public LapRace BestLap { get; }
-
+        /// <summary>
+        /// Calculate the BestLap of the race that is the lap made in less time by any pilot
+        /// </summary>
         private LapRace GetBestLap()
         {
             return _lapRaces.Select(lap => (lap.TimeDuration, lap)).Min().lap; ;
         }
+        #endregion
     }
 }

@@ -5,7 +5,7 @@
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="container mat-elevation-z8 mt-5">
+<div class="container mat-elevation-z8 mt-5 min-height">
   <h3 class="text-center pt-4 text-color">Race Results</h3>
   <table mat-table [dataSource]="pilotStats">
 
@@ -60,19 +60,19 @@
   <h3 class="text-center pt-4 text-color">Best LapRace</h3>
   <ul>
     <li>
-      <h6><b>TimeEvent: </b>{{bestLapRace.timeEvent.slice(0,12)}}</h6>
+      <h6><b>TimeEvent: </b>{{bestLapRace?.timeEvent?.slice(0,12)}}</h6>
     </li>
     <li>
-      <h6><b>Number: </b>{{bestLapRace.number}}</h6>
+      <h6><b>Number: </b>{{bestLapRace?.number}}</h6>
     </li>
     <li>
-      <h6><b>Pilot Code: </b>{{bestLapRace.pilotId}}</h6>
+      <h6><b>Pilot Code: </b>{{bestLapRace?.pilotId}}</h6>
     </li>
     <li>
-      <h6><b>TimeDuration: </b>{{bestLapRace.timeDuration.slice(0,12)}}</h6>
+      <h6><b>TimeDuration: </b>{{bestLapRace?.timeDuration?.slice(0,12)}}</h6>
     </li>
     <li>
-      <h6><b>Mean Velocity: </b>{{bestLapRace.meanVelocity}}</h6>
+      <h6><b>Mean Velocity: </b>{{bestLapRace?.meanVelocity}}</h6>
     </li>
   </ul>
 </div>
