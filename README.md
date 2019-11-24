@@ -10,7 +10,7 @@ The Race Analysis App is deployed on the cloud. You can access the app on the fo
 
 - App (FrontEnd with api calls): <https://raceanalysis.now.sh/>
 
-- App Api (Azure): <https://raceanalysis.azurewebsites.net/api/races/1>
+- App Api (Azure): <https://raceanalysis.azurewebsites.net/api/races/1> [Offline]
 
 ## Running The App on local environment
 
