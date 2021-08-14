@@ -1,8 +1,9 @@
 # Race Analysis
 
-This is a simple application that aims to show a simple, yet consistent, project using **Clean Architecture**, **Domain Driven Design** and **SOLID Principles**. We also create a simple web frontend to show some result. In this way we created a total decoupled Backend and Frontend, which nowadays is a great practice.
+This is a simple application that aims to show a simple, yet consistent, project using **Clean Architecture**, **Domain Driven Design** and **SOLID Principles**. 
+A simple web frontend was also implemented to show some results.
 
-The App consist in generate a report on a given Race. The data input is a template file .txt in which each line correspond to a Race Event containing some useful information. This file can be found on the PresenterWeb Folder (That Folder is the Start of the application)
+This app consists in generate a report of a given Race. The data input is a template file .txt in which each line correspond to a Race Event containing information about the race. This file can be found on the PresenterWeb Folder (That Folder is the Start of the application)
 
 ## Using The App
 
